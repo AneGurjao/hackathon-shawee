@@ -1,14 +1,32 @@
 import styled from 'styled-components';
 import { Button, IconButton } from '@material-ui/core';
+import CardBlck from '../assets/img/cartao-blck.svg';
+import Buy from '../assets/img/img1.png';
+import Accounts from '../assets/img/img2.png';
+import Debts from '../assets/img/img3.png';
 
 export const Box = styled.div`
   width: 100%;
 
   & .img-home {
+    background-image: url(${CardBlck});
+    background-position: top;
+    background-size: contain;
+    background-repeat: no-repeat;
     width: 100%;
-    height: auto;
-    z-index: 0;
-    overflow: hidden;
+    height: 48vh;
+  }
+
+  & .list-icons {
+    position: relative;
+  }
+  & .list-menu {
+    position: absolute;
+    bottom: 6px;
+    border-top: 1px solid #eef0f3;
+    padding-top: 8px;
+    display: flex;
+    align-items: center;
   }
 `;
 
@@ -18,20 +36,40 @@ export const ControlPlayer = styled.div`
 
 export const Link = styled.a`
   text-decoration: none;
-  position: absolute;
-  bottom: 43px;
-  right: 0;
-  z-index: 99999999;
+  display: block;
   width: 108px;
-  height: 106px;
+  height: 95px;
+  margin: 0 auto;
   text-align: center;
   overflow: hidden;
 
+  & img {
+    width: 38px;
+  }
+
   & .text {
     margin-top: 2px;
-    font-size: 12px;
+    font-size: 13px;
     text-align: center;
     line-height: 1.1;
+  }
+`;
+
+export const MenuList = styled.div`
+  display: block;
+  text-align: center;
+
+  & .text {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 500;
+    color: #3e3e3e;
+    letter-spacing: -0.03em;
+
+    &:nth-child(3) {
+      color: var(--blue);
+    }
   }
 `;
 
@@ -68,6 +106,39 @@ export const ButtonCustom = styled(Button)`
     text-decoration: underline;
     color: var(--black);
     padding: 5px 0;
+  }
+`;
+
+export const ButtonBackground = styled(Button)`
+  width: 340px;
+  height: 94px;
+  margin-bottom: 20px;
+  text-transform: initial;
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  & .MuiButton-label {
+    z-index: 5;
+  }
+  & .MuiTouchRipple-root {
+    background-color: rgba(12, 12, 12, 0.5);
+    z-index: 2;
+  }
+
+  &.buy {
+    background-image: url(${Buy});
+  }
+  &.accounts {
+    background-image: url(${Accounts});
+  }
+
+  &.debts {
+    background-image: url(${Debts});
   }
 `;
 
@@ -166,4 +237,8 @@ export const TypographyCustom = styled.p`
 
 export const TitleCustom = styled(TypographyCustom)`
   margin: 0 auto;
+`;
+
+export const Pagination = styled.div`
+  color: var(--blue);
 `;
