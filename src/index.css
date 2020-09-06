@@ -1,15 +1,22 @@
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 html,body {
   margin: 0;
   padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 :root {
-  --primary: green;
+  --blue: #006583;
+  --black: #313131;
+  --black-default: #000;
+  --white: #fff;
+  --gray-light: #E0E0E0;
+  --gray-medium: #5B5B5B;
+  --green: #26B923;
 }
 
 a {
