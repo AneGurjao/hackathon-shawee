@@ -11,7 +11,7 @@ const PositiveFinancial = () => {
   return (
     <S.ContainerCustom>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Link to="">
+        <Link to="/emprestimo/limite">
           <ArrowBack />
         </Link>
         <S.SmallCustom>Educação Financeira</S.SmallCustom>

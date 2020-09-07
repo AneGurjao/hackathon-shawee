@@ -12,7 +12,7 @@ const FinancialEducation = () => {
     <S.ContainerCustom>
       <div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Link to="">
+          <Link to="/">
             <ArrowBack />
           </Link>
           <S.SmallCustom>Educação Financeira</S.SmallCustom>

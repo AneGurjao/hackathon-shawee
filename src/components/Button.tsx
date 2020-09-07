@@ -5,13 +5,24 @@ type IProps = {
   textButton: string;
   className?: string;
   href?: string;
-  onClick?: string;
+  onClick?: () => void;
   disabled?: boolean;
 };
 
-function ButtonLink({ className, href, textButton }: IProps) {
+function ButtonLink({
+  className,
+  href,
+  textButton,
+  onClick,
+  disabled,
+}: IProps) {
   return (
-    <S.ButtonLink href={href} className={className}>
+    <S.ButtonLink
+      href={href}
+      className={className}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {textButton}
     </S.ButtonLink>
   );

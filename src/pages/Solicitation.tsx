@@ -5,9 +5,12 @@ import ButtonLink from '../components/Button';
 import DialogTerms from '../components/DialogTerms';
 import Radio from '@material-ui/core/Radio';
 import api from '../api';
+import { useHistory } from 'react-router-dom';
 
 function Solicitation() {
   const [userName, setUserName] = useState('');
+  const [active, setActive] = useState<boolean>(false);
+  const history = useHistory();
 
   useEffect(() => {
     api
@@ -19,12 +22,24 @@ function Solicitation() {
       .then((response) => {
         const { name } = response.data;
         setUserName(name);
-        console.log(name);
       });
   }, []);
+
+  const handleCheck = () => {
+    setActive(true);
+  };
+
+  const handleDisabled = () => {
+    if (active === true) {
+      history.push('/objetivo');
+    }
+  };
+
   return (
     <Container>
-      <S.Title>Estamos felizes em ter você por aqui, {userName}!</S.Title>
+      <S.Title>
+        Estamos felizes em ter você por aqui, {userName.slice(0, 5)}!
+      </S.Title>
       <S.TypographyDefault>
         Para oferecermos a melhor oferta de empréstimo precisamos que você
         permita o nosso acesso aos seus dados.{' '}
@@ -35,7 +50,13 @@ function Solicitation() {
       </S.TypographyBlue>
       <S.FormRadioGroup>
         <RadioGroup>
-          <FormControlLabel value="terms" control={<Radio />} label="" />
+          <FormControlLabel
+            value="terms"
+            control={<Radio />}
+            label=""
+            onChange={handleCheck}
+            checked={active}
+          />
         </RadioGroup>
         <DialogTerms />
       </S.FormRadioGroup>
@@ -43,7 +64,9 @@ function Solicitation() {
       <ButtonLink
         textButton="Autorizar acesso aos meus dados"
         className="button-blue"
-        disabled
+        disabled={!active}
+        onClick={handleDisabled}
+        href="/objetivo"
       />
       <ButtonLink textButton="Cancelar" href="/" className="button-gray" />
     </Container>

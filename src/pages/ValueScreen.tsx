@@ -4,21 +4,13 @@ import * as S from '../components/styled';
 import { Link } from 'react-router-dom';
 import ButtonLink from '../components/Button';
 import { ReactComponent as ArrowBack } from '../assets/img/fe_arrow-left.svg';
-import { ReactComponent as Avatar } from '../assets/img/avatar.svg';
-import { osName, mobileVendor, mobileModel } from 'react-device-detect';
+import { mobileModel } from 'react-device-detect';
 import api from '../api';
 
-interface Phone {
-  name_os?: string;
-  mark?: string;
-  model?: string;
-}
-
 const ValueScreen = () => {
-  const [phone, setPhone] = useState<Phone>({});
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
-  const [limit, setLimit] = useState(0);
+  const [limit, setLimit] = useState<string>('');
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -29,31 +21,22 @@ const ValueScreen = () => {
   }, []);
 
   useEffect(() => {
-    api
-      .get('limit', {
-        headers: {
-          token: 'abcd',
-        },
-        params: {
-          latitude,
-          longitude,
-          phone,
-        },
-      })
-      .then((response) => {
-        const { value } = response.data;
-        setLimit(value);
-        console.log(value);
-      });
-  }, [phone, latitude, longitude]);
-
-  useEffect(() => {
-    setPhone({
-      name_os: osName,
-      mark: mobileVendor,
-      model: mobileModel,
-    });
-  }, []);
+    if (latitude !== 0 && longitude !== 0) {
+      api
+        .get('limit', {
+          headers: {
+            token: 'abcd',
+            latitude,
+            longitude,
+            phone: mobileModel,
+          },
+        })
+        .then((response) => {
+          const { limit_lending } = response.data;
+          setLimit(limit_lending);
+        });
+    }
+  }, [latitude, longitude]);
 
   return (
     <>
@@ -63,7 +46,6 @@ const ValueScreen = () => {
             <ArrowBack />
           </Link>
           <Typography className="smallTop">Empréstimo</Typography>
-          <Avatar />
         </div>
         <div className="value-available">
           <p>Limite disponível:</p>
@@ -79,7 +61,7 @@ const ValueScreen = () => {
       </S.ScreenTop>
       <Container
         style={{
-          padding: '58px 16px 0px 16px',
+          padding: '35px 16px 0px 16px',
           background: 'rgb(229 229 229 / 67%)',
         }}
       >
@@ -102,7 +84,11 @@ const ValueScreen = () => {
             </S.TextSmall>
           </S.CardBckground>
         </Link>
-        <ButtonLink textButton="Voltar" href="/" className="button-blue" />
+        <ButtonLink
+          textButton="Voltar"
+          href="/emprestimo/aprovado"
+          className="button-blue"
+        />
       </Container>
     </>
   );
