@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 import { Player } from '@lottiefiles/react-lottie-player';
 import * as S from '../components/styled';
+import ButtonLink from '../components/Button';
 
 const Approved = () => {
   return (
@@ -25,6 +26,7 @@ const Approved = () => {
         Agora você pode conferir o andamento do seu empréstimo, seu limite e o
         status.
       </S.TypographyCustom>
+      <ButtonLink textButton="Próximo" className="button-blue" />
     </Container>
   );
 };
