@@ -26,7 +26,11 @@ const Approved = () => {
         Agora você pode conferir o andamento do seu empréstimo, seu limite e o
         status.
       </S.TypographyCustom>
-      <ButtonLink textButton="Próximo" className="button-blue" />
+      <ButtonLink
+        textButton="Próximo"
+        className="button-blue"
+        href="/emprestimo/limite"
+      />
     </Container>
   );
 };

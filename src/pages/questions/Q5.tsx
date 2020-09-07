@@ -1,51 +1,25 @@
 import React from 'react';
 import * as S from '../../components/styled';
-import { RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
+import CheckboxComp from '../../components/Checkbox';
 
 const QuestionFive = () => {
   return (
     <>
-      <div>
-        <S.Title>4.1 Você é assinante de algum dos serviços abaixo?</S.Title>
-        <RadioGroup>
-          <FormControlLabel
-            value="terms"
-            control={<Radio />}
-            label="TV por assinatura"
-          />
-          <small>(ex: net, sky, claro tv ou similares)</small>
-        </RadioGroup>
-        <RadioGroup>
-          <FormControlLabel
-            value="terms"
-            control={<Radio />}
-            label="Streaming de filmes e séries"
-          />
-          <small>(ex: netflix, amazon prime, globo play ou similares)</small>
-        </RadioGroup>
-        <RadioGroup>
-          <FormControlLabel
-            value="terms"
-            control={<Radio />}
-            label="Streaming de música"
-          />
-          <small>(spotify, deezer, youtube music)</small>
-        </RadioGroup>
-        <RadioGroup>
-          <FormControlLabel
-            value="terms"
-            control={<Radio />}
-            label="Utilizo esses serviços somente na versão grátis"
-          />
-        </RadioGroup>
-        <RadioGroup>
-          <FormControlLabel
-            value="terms"
-            control={<Radio />}
-            label="Não utilizo nenhum desses serviçoso"
-          />
-        </RadioGroup>
-      </div>
+      <S.Title>4.1 Você é assinante de algum dos serviços abaixo?</S.Title>
+      <CheckboxComp
+        label="TV por assinatura"
+        text="(ex: net, sky, claro tv ou similares)"
+      />
+      <CheckboxComp
+        label="Streaming de filmes e séries"
+        text="(ex: netflix, amazon prime, globo play ou similares)"
+      />
+      <CheckboxComp
+        label="Streaming de música"
+        text="(spotify, deezer, youtube music)"
+      />
+      <CheckboxComp label="Utilizo esses serviços somente na versão grátis" />
+      <CheckboxComp label="Não utilizo nenhum desses serviçoso" />
     </>
   );
 };

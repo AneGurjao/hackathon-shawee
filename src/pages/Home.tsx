@@ -17,7 +17,6 @@ function Home() {
       .then((response) => {
         const { name } = response.data;
         setUserName(name);
-        console.log(name);
       });
   }, []);
 
@@ -25,7 +24,7 @@ function Home() {
     <>
       <S.Box>
         <div className="img-home">
-          <Typography style={{ color: '#fff' }}>{userName}</Typography>
+          <Typography className="user">Olá, {userName}</Typography>
         </div>
         <Grid container className="list-icons">
           {ListIcons.map((item, index) => (

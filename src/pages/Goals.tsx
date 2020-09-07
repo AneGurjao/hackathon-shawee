@@ -6,7 +6,9 @@ import { Container } from '@material-ui/core';
 const Goals = () => {
   return (
     <Container>
-      <S.Pagination>01/02</S.Pagination>
+      <S.Pagination style={{ paddingTop: '20px' }}>
+        <span>01/</span>02
+      </S.Pagination>
       <S.Title>Qual o seu objetivo com o empréstimo?</S.Title>
       <div>
         <S.ButtonBackground className="buy">
@@ -19,7 +21,11 @@ const Goals = () => {
           Quero quitar minha dívidas
         </S.ButtonBackground>
       </div>
-      <ButtonLink textButton="Continuar" className="button-blue" disabled />
+      <ButtonLink
+        textButton="Continuar"
+        className="button-blue"
+        href="/perguntas"
+      />
       <ButtonLink textButton="Voltar" className="button-gray" href="/ " />
     </Container>
   );

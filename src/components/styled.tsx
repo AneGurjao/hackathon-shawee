@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-import { Button, IconButton, Card, Container } from '@material-ui/core';
+import {
+  Button,
+  IconButton,
+  Card,
+  Container,
+  FormControlLabel,
+} from '@material-ui/core';
 import CardBlck from '../assets/img/cartao-blck.svg';
 import BaseIcons from '../assets/img/bcg-icons.svg';
 import TopImage from '../assets/img/bcg.svg';
@@ -31,6 +37,16 @@ export const Box = styled.div`
     background-repeat: no-repeat;
     width: 100%;
     height: 48vh;
+
+    & .user {
+      color: var(--white);
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 600;
+    }
   }
 
   & .list-icons {
@@ -118,6 +134,12 @@ export const ButtonLink = styled(Button)`
       color: var(--white);
       margin: 20px 0;
     }
+
+    &.Mui-disabled {
+      background: var(--gray-light);
+      letter-spacing: -0.055em;
+      font-size: 18px;
+    }
   }
 `;
 
@@ -135,7 +157,7 @@ export const ButtonCustom = styled(Button)`
 `;
 
 export const ButtonBackground = styled(Button)`
-  width: 340px;
+  width: 333px;
   height: 94px;
   margin-bottom: 20px;
   text-transform: initial;
@@ -174,8 +196,9 @@ export const Title = styled.h5`
   text-align: center;
   font-style: normal;
   color: var(--black-default);
-  margin: 60px 20px;
   line-height: 30px;
+  width: 80%;
+  margin: 40px auto;
 `;
 
 export const TitleFinancial = styled(Title)`
@@ -270,7 +293,15 @@ export const TitleCustom = styled(TypographyCustom)`
 `;
 
 export const Pagination = styled.div`
-  color: var(--blue);
+  font-weight: bold;
+  color: var(--gray-light);
+  text-align: center;
+  font-size: 19px;
+  width: 100%;
+
+  & span {
+    color: var(--blue);
+  }
 `;
 
 export const CardBckground = styled.div`
@@ -309,6 +340,7 @@ export const ScreenTop = styled.div`
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    height: 56px;
 
     & a {
       & svg {
@@ -324,7 +356,7 @@ export const ScreenTop = styled.div`
 
   & .smallTop {
     color: var(--white);
-    width: 45px;
+    width: 100%;
     font-family: 'Source Sans Pro', sans-serif;
   }
 
@@ -445,7 +477,7 @@ export const CardCustom = styled(Card)`
       padding-top: 30px;
 
       & .MuiButton-label {
-        width: 55%;
+        width: 58%;
         margin: 0 auto;
         line-height: 1;
       }
@@ -456,5 +488,45 @@ export const CardCustom = styled(Card)`
       right: 12px;
       top: 30px;
     }
+  }
+`;
+
+export const ControlCheckbox = styled.div`
+  width: 78%;
+  margin: 10px auto;
+
+  & .small {
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: -0.055em;
+    color: var(--gray-medium);
+    text-align: center;
+  }
+`;
+
+export const FormControlLabelCustom = styled(FormControlLabel)`
+  && {
+    display: block;
+    width: 92%;
+    margin: 0 auto;
+
+    & .MuiTypography-root {
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    & .MuiCheckbox-colorSecondary.Mui-checked {
+      color: var(--blue);
+    }
+  }
+`;
+
+export const CustomSmall = styled(SmallCustom)`
+  && {
+    color: var(--gray-medium);
+    text-align: center;
+    font-size: 14px;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
   }
 `;
