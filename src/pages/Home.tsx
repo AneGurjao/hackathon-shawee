@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ListIcons, ListMenu } from '../utils/constants';
 import * as S from '../components/styled';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
+import api from '../api';
 
 function Home() {
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    api
+      .get('user', {
+        headers: {
+          token: 'abcd',
+        },
+      })
+      .then((response) => {
+        const { name } = response.data;
+        setUserName(name);
+        console.log(name);
+      });
+  }, []);
+
   return (
     <>
       <S.Box>
-        <div className="img-home"></div>
+        <div className="img-home">
+          <Typography style={{ color: '#fff' }}>{userName}</Typography>
+        </div>
         <Grid container className="list-icons">
           {ListIcons.map((item, index) => (
             <Grid item xs={4} key={index}>

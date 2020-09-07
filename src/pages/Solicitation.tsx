@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, FormControlLabel, RadioGroup } from '@material-ui/core';
 import * as S from '../components/styled';
 import ButtonLink from '../components/Button';
 import DialogTerms from '../components/DialogTerms';
 import Radio from '@material-ui/core/Radio';
+import api from '../api';
 
 function Solicitation() {
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    api
+      .get('user', {
+        headers: {
+          token: 'abcd',
+        },
+      })
+      .then((response) => {
+        const { name } = response.data;
+        setUserName(name);
+        console.log(name);
+      });
+  }, []);
   return (
     <Container>
-      <S.Title>Estamos felizes em ter você por aqui, NOME!</S.Title>
+      <S.Title>Estamos felizes em ter você por aqui, {userName}!</S.Title>
       <S.TypographyDefault>
         Para oferecermos a melhor oferta de empréstimo precisamos que você
         permita o nosso acesso aos seus dados.{' '}
