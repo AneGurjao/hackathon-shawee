@@ -1,29 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## MegaHack Women
+NOva funcionalidade de solicitação de empréstimo do app conta Black.
 
-## Available Scripts
+## Tecnologias utlizadas
+- ReactJs;
+- TypeScript;
+- Styled Components;
 
-In the project directory, you can run:
+## Pré-requisitos
 
-### `npm start`
+Você precisará dos seguintes itens instalados corretamente em seu computador.
+- [Git](http://git-scm.com/) v2+
+- [Node.js](http://nodejs.org/) v10.5+ (with NPM v6.1+)
+- [Npm](https://https://www.npmjs.com/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Instalação
+- `git clone git@github.com:Rosiane-Gurjao/hackathon-shawee.git`
+- `npm install` para instalar as dependências
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Para Executar
+- `npm start` - Inicia o projeto e a página com livereload deve abrir no seu navegador em `localhost: 3000`
 
-### `npm build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Rotas
+Rotas navegáveis 
+- `http://localhost:3000/solicitacao
+- `http://localhost:3000/objetivo
+- `http://localhost:3000/perguntas
+- `http://localhost:3000/emprestimo/aprovado
+- `http://localhost:3000/emprestimo/limite
+- `http://localhost:3000/emprestimo/reprovado
+- `http://localhost:3000/educacao-financeira
+- `http://localhost:3000/educacao-positiva
