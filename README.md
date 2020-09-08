@@ -1,5 +1,5 @@
 ## MegaHack Women
-NOva funcionalidade de solicitação de empréstimo do app conta Black.
+Nova funcionalidade de solicitação de empréstimo do app conta Black.
 
 ## Tecnologias utlizadas
 - ReactJs;
